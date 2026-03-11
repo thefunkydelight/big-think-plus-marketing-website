@@ -1,0 +1,9 @@
+[build]
+  command   = "bash build.sh"
+  publish   = "_site"
+  environment = { PHP_VERSION = "8.3" }
+
+[[redirects]]
+  from   = "/*"
+  to     = "/:splat/index.html"
+  status = 200

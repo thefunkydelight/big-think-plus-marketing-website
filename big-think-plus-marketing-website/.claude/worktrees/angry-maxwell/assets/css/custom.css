@@ -1,0 +1,65 @@
+/* Big Think+ Prototype — Custom Styles */
+
+/* ── Smooth scroll ─────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ── Typography ────────────────────────────────────── */
+.font-700 { font-weight: 700; }
+.font-600 { font-weight: 600; }
+
+/* ── Line clamp utilities ──────────────────────────── */
+.line-clamp-1 { display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+.line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.line-clamp-3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* ── Navigation ────────────────────────────────────── */
+#main-nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,.08); }
+
+/* Dropdown: ensure the group-hover works across browsers */
+.group:hover .dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ── Domain card hover ─────────────────────────────── */
+.domain-card:hover { transform: translateY(-2px); }
+
+/* ── Video wrapper responsive ──────────────────────── */
+#video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Expert class card grid ────────────────────────── */
+.ec-card { transition: box-shadow .2s, border-color .2s, transform .2s; }
+.ec-card:hover { transform: translateY(-2px); }
+
+/* ── Lesson sidebar active state ───────────────────── */
+.lesson-active { background-color: rgba(12,61,84,.06); border-left: 2px solid #0c3d54; }
+
+/* ── Tab active state ──────────────────────────────── */
+.tab-active {
+  color: #0c3d54;
+  border-bottom: 2px solid #0c3d54;
+  background-color: #fff;
+}
+
+/* ── Scrollbar (subtle) ────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ── Modal backdrop ────────────────────────────────── */
+#ai-modal { animation: fadeIn .15s ease; }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+#ai-modal > div { animation: slideUp .2s ease; }
+@keyframes slideUp { from { transform:translateY(12px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+
+/* ── Responsive tweaks ─────────────────────────────── */
+@media (max-width: 640px) {
+  h1.hero-title { font-size: 2.5rem; }
+}
