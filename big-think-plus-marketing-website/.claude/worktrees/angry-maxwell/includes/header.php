@@ -15,9 +15,10 @@ tailwind.config = {
         'navy-dark': '#0a3347',
         'navy-light': '#155270',
         'bt-gold': '#e8a020',
+        'bt-text': '#222222',
       },
       fontFamily: {
-        serif:   ['"Libre Baskerville"', 'Georgia', 'serif'],
+        serif:   ['"Playfair Display"', 'Georgia', 'serif'],
         sans:    ['Inter', 'system-ui', 'sans-serif'],
         display: ['Oswald', 'sans-serif'],
       },
@@ -27,10 +28,10 @@ tailwind.config = {
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
-<body class="font-sans bg-white text-gray-900 antialiased">
+<body class="font-sans bg-white text-bt-text antialiased">
 
 <?php
 // Build the domains list for the nav dropdown
@@ -51,16 +52,28 @@ $nav_domains = bt_domains();
       <!-- Desktop nav links -->
       <div class="hidden lg:flex items-center gap-1">
 
-        <!-- Content dropdown -->
+        <!-- Leadership Domains dropdown -->
         <div class="relative group">
           <button class="nav-link flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-navy rounded transition-colors">
-            Content
+            Leadership Domains
             <svg class="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="dropdown-menu absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-xl border border-gray-100 py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-            <a href="#" class="dropdown-item block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-navy">Our Approach</a>
-            <a href="#" class="dropdown-item block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-navy">Experts</a>
-            <a href="#" class="dropdown-item block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-navy">Library</a>
+          <div class="dropdown-menu domains-mega absolute top-full left-0 mt-1 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <p class="px-4 pb-2 text-xs font-display font-600 text-gray-400 uppercase tracking-widest">Browse by Domain</p>
+            <?php foreach ($nav_domains as $nd): ?>
+            <a href="/domains/<?= $nd['slug'] ?>" class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group/item">
+              <span class="mt-0.5 flex-shrink-0 w-7 h-7 rounded-md bg-navy/10 flex items-center justify-center">
+                <svg class="w-4 h-4 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              </span>
+              <div>
+                <p class="text-sm font-semibold text-gray-900 group-hover/item:text-navy"><?= htmlspecialchars($nd['title']) ?></p>
+                <p class="text-xs text-gray-400 mt-0.5 line-clamp-1"><?= htmlspecialchars($nd['description']) ?></p>
+              </div>
+            </a>
+            <?php endforeach; ?>
+            <div class="px-4 pt-2 border-t border-gray-100 mt-1">
+              <a href="/#domains" class="text-xs font-semibold text-navy hover:underline">View all domains →</a>
+            </div>
           </div>
         </div>
 
@@ -99,28 +112,16 @@ $nav_domains = bt_domains();
           </div>
         </div>
 
-        <!-- ★ LEADERSHIP DOMAINS DROPDOWN (NEW) -->
+        <!-- About dropdown -->
         <div class="relative group">
-          <button class="nav-link flex items-center gap-1 px-3 py-2 text-sm font-semibold text-navy border-b-2 border-navy rounded transition-colors">
-            Leadership Domains
+          <button class="nav-link flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-navy rounded transition-colors">
+            About
             <svg class="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="dropdown-menu domains-mega absolute top-full left-0 mt-1 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-            <p class="px-4 pb-2 text-xs font-display font-600 text-gray-400 uppercase tracking-widest">Browse by Domain</p>
-            <?php foreach ($nav_domains as $nd): ?>
-            <a href="/domains/<?= $nd['slug'] ?>" class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group/item">
-              <span class="mt-0.5 flex-shrink-0 w-7 h-7 rounded-md bg-navy/10 flex items-center justify-center">
-                <svg class="w-4 h-4 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-              </span>
-              <div>
-                <p class="text-sm font-semibold text-gray-900 group-hover/item:text-navy"><?= htmlspecialchars($nd['title']) ?></p>
-                <p class="text-xs text-gray-400 mt-0.5 line-clamp-1"><?= htmlspecialchars($nd['description']) ?></p>
-              </div>
-            </a>
-            <?php endforeach; ?>
-            <div class="px-4 pt-2 border-t border-gray-100 mt-1">
-              <a href="/#domains" class="text-xs font-semibold text-navy hover:underline">View all domains →</a>
-            </div>
+          <div class="dropdown-menu absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <a href="https://bigthink.com/plus/about-us/" target="_blank" class="dropdown-item block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-navy">About Us</a>
+            <a href="https://bigthink.com/plus/our-approach/" target="_blank" class="dropdown-item block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-navy">Our Approach</a>
+            <a href="https://bigthink.com/plus/experts/" target="_blank" class="dropdown-item block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-navy">Experts</a>
           </div>
         </div>
 

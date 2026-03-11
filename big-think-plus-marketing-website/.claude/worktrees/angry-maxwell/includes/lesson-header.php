@@ -15,9 +15,10 @@ tailwind.config = {
         'navy-dark': '#0a3347',
         'navy-light': '#155270',
         'bt-gold': '#e8a020',
+        'bt-text': '#222222',
       },
       fontFamily: {
-        serif:   ['"Libre Baskerville"', 'Georgia', 'serif'],
+        serif:   ['"Playfair Display"', 'Georgia', 'serif'],
         sans:    ['Inter', 'system-ui', 'sans-serif'],
         display: ['Oswald', 'sans-serif'],
       },
@@ -27,10 +28,10 @@ tailwind.config = {
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
-<body class="font-sans bg-white text-gray-900 antialiased">
+<body class="font-sans bg-white text-bt-text antialiased">
 
 <!-- ── LESSON NAV (compact) ───────────────────────────────────────── -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 h-14">

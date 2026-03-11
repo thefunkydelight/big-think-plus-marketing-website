@@ -17,14 +17,14 @@
         </div>
       </div>
 
-      <!-- Content -->
+      <!-- About -->
       <div>
-        <h4 class="text-xs font-display font-600 uppercase tracking-widest text-white/50 mb-4">Content</h4>
+        <h4 class="text-xs font-display font-600 uppercase tracking-widest text-white/50 mb-4">About</h4>
         <ul class="space-y-2.5 text-sm text-white/70">
-          <li><a href="#" class="hover:text-white transition-colors">Our Approach</a></li>
-          <li><a href="#" class="hover:text-white transition-colors">Experts</a></li>
-          <li><a href="#" class="hover:text-white transition-colors">Library</a></li>
-          <li><a href="#" class="hover:text-white transition-colors">Expert Classes</a></li>
+          <li><a href="https://bigthink.com/plus/about-us/" target="_blank" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="https://bigthink.com/plus/our-approach/" target="_blank" class="hover:text-white transition-colors">Our Approach</a></li>
+          <li><a href="https://bigthink.com/plus/experts/" target="_blank" class="hover:text-white transition-colors">Experts</a></li>
+          <li><a href="/#domains" class="hover:text-white transition-colors">Expert Classes</a></li>
         </ul>
       </div>
 
