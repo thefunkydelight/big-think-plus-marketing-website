@@ -3,67 +3,38 @@ require_once __DIR__ . '/data/data.php';
 $page_title = 'Big Think+ | Leadership Development Platform';
 $domains = bt_domains();
 
-// Get 3 featured classes per domain for showcase
 $featured = [];
 foreach ($domains as $dom) {
     $classes = bt_classes_by_domain($dom['slug']);
     $featured[$dom['slug']] = array_slice($classes, 0, 3);
 }
 
-// Hero expert names
-$hero_experts = ['Kim Scott','Michael Watkins','Daniel Goleman','Ethan Mollick','Lynda Gratton','Ben Horowitz','Atul Gawande','Yuval Noah Harari'];
 include __DIR__ . '/includes/header.php';
 ?>
 
 <!-- ── HERO ─────────────────────────────────────────────────────────── -->
 <section class="bg-navy text-white overflow-hidden relative">
-  <!-- Background texture -->
   <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 1px 1px, white 1px, transparent 0);background-size:32px 32px;"></div>
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 relative">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="inline-flex items-center gap-1.5 text-xs font-display font-600 uppercase tracking-widest text-bt-gold mb-6">
-          <span class="w-6 h-px bg-bt-gold"></span> Leadership Development Platform
-        </span>
-        <h1 class="font-serif text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.05] mb-6">
-          Unlock<br><em class="not-italic text-bt-gold">Leadership</em><br>Potential
-        </h1>
-        <p class="text-white/70 text-lg lg:text-xl leading-relaxed mb-8 max-w-lg">
-          High-impact video microlearning from the world's biggest thinkers — delivered in the formats your teams will actually use.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="https://bigthink.com/plus/request-demo/" target="_blank"
-             class="inline-flex items-center gap-2 bg-white text-navy font-semibold px-7 py-3.5 rounded-full hover:bg-gray-100 transition-colors text-sm">
-            Request a Demo
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
-          <a href="#domains" class="inline-flex items-center gap-2 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-white/10 transition-colors text-sm">
-            Explore Domains
-          </a>
-        </div>
-        <!-- Stats -->
-        <div class="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
-          <div><p class="text-3xl font-serif font-bold text-white">1,500<span class="text-bt-gold">+</span></p><p class="text-xs text-white/50 mt-1 uppercase tracking-wide">Video Lessons</p></div>
-          <div><p class="text-3xl font-serif font-bold text-white">150<span class="text-bt-gold">+</span></p><p class="text-xs text-white/50 mt-1 uppercase tracking-wide">Expert Classes</p></div>
-          <div><p class="text-3xl font-serif font-bold text-white">5</p><p class="text-xs text-white/50 mt-1 uppercase tracking-wide">Leadership Domains</p></div>
-        </div>
-      </div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 relative text-center">
+    <h1 class="font-sans font-black text-5xl lg:text-6xl xl:text-7xl uppercase leading-tight tracking-tight text-white mb-6">
+      UNLOCK <strong>LEADERSHIP</strong> POTENTIAL
+    </h1>
+    <p class="text-white/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
+      Engage learners like never before with high-impact video microlearning from the <strong class="text-white font-semibold">biggest thinkers in the world.</strong>
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="https://bigthink.com/plus/request-demo/" target="_blank"
+         class="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white hover:text-navy transition-colors text-sm uppercase tracking-wide">
+        Request Demo
+      </a>
+    </div>
 
-      <!-- Expert headshot grid -->
-      <div class="hidden lg:grid grid-cols-4 gap-3">
-        <?php foreach ($hero_experts as $i => $expert):
-          $nums = [45,52,77,31,58,60,43,81];
-          $genders = ['women','men','men','men','women','men','men','men'];
-          $headshot = "https://randomuser.me/api/portraits/{$genders[$i]}/{$nums[$i]}.jpg";
-        ?>
-        <div class="<?= $i % 2 === 1 ? 'mt-6' : '' ?> group cursor-pointer">
-          <div class="aspect-square rounded-xl overflow-hidden ring-2 ring-white/10 group-hover:ring-bt-gold/60 transition-all">
-            <img src="<?= $headshot ?>" alt="<?= htmlspecialchars($expert) ?>" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
-          </div>
-          <p class="text-center text-xs text-white/50 mt-2 font-medium"><?= htmlspecialchars($expert) ?></p>
-        </div>
-        <?php endforeach; ?>
-      </div>
+    <!-- Expert names strip -->
+    <div class="mt-14 pt-10 border-t border-white/10">
+      <p class="text-xs font-display font-600 uppercase tracking-widest text-white/40 mb-4">Featured Experts</p>
+      <p class="text-white/60 text-sm leading-relaxed">
+        Dan Pink &nbsp;&middot;&nbsp; Simon Sinek &nbsp;&middot;&nbsp; Liz Wiseman &nbsp;&middot;&nbsp; Amy Edmondson &nbsp;&middot;&nbsp; Ginni Rometty &nbsp;&middot;&nbsp; Gary Vaynerchuk &nbsp;&middot;&nbsp; Deepak Chopra &nbsp;&middot;&nbsp; Arianna Huffington
+      </p>
     </div>
   </div>
 </section>
@@ -71,7 +42,8 @@ include __DIR__ . '/includes/header.php';
 <!-- ── SOCIAL PROOF ──────────────────────────────────────────────────── -->
 <section class="bg-white py-12 border-b border-gray-100">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <p class="text-center text-xs font-display font-600 uppercase tracking-widest text-gray-400 mb-8">Trusted by the most innovative L&D teams</p>
+    <p class="text-center text-xs font-display font-600 uppercase tracking-widest text-gray-400 mb-2">Trusted by the most innovative L&amp;D teams</p>
+    <p class="text-center text-xs text-gray-400 mb-8">Built for organizations committed to scaling impact.</p>
     <div class="flex flex-wrap items-center justify-center gap-10 lg:gap-16">
       <?php
       $logos = ['Microsoft','Google','Amazon','Salesforce','McKinsey','Deloitte','JPMorgan','Stryker','Marriott'];
@@ -82,15 +54,15 @@ include __DIR__ . '/includes/header.php';
   </div>
 </section>
 
-<!-- ── LEADERSHIP DOMAINS (NEW) ─────────────────────────────────────── -->
+<!-- ── LEADERSHIP DOMAINS ─────────────────────────────────────────── -->
 <section id="domains" class="bg-gray-50 py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="text-center mb-14">
-      <span class="inline-flex items-center gap-1.5 text-xs font-display font-600 uppercase tracking-widest text-navy/60 mb-4">
-        <span class="w-6 h-px bg-navy/30"></span> Expert Classes
+      <span class="inline-flex items-center gap-1.5 text-xs font-display font-600 uppercase tracking-widest text-gray-400 mb-4">
+        <span class="w-6 h-px bg-gray-300"></span> Expert Classes
       </span>
       <h2 class="font-serif text-4xl lg:text-5xl font-bold text-navy mb-4">Leadership Domains</h2>
-      <p class="text-gray-500 text-lg max-w-2xl mx-auto">Explore 150+ Expert Classes organized across five leadership domains — each designed to develop the capabilities that matter most.</p>
+      <p class="text-gray-500 text-lg max-w-2xl mx-auto">With 500+ experts, 1,500+ lessons, and new releases each month, we meet each learner where they are — whether they are an individual contributor, team manager, or senior leader.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -110,7 +82,7 @@ include __DIR__ . '/includes/header.php';
         $count = $domain_counts[$dom['slug']];
         $sample = $featured[$dom['slug']];
       ?>
-      <a href="/domains/<?= $dom['slug'] ?>" class="group bg-white rounded-2xl p-7 border border-gray-200 hover:border-navy/30 hover:shadow-lg transition-all duration-200 flex flex-col <?= $i === 0 ? 'lg:col-span-1 md:col-span-2 lg:md:col-span-1' : '' ?>">
+      <a href="/domains/<?= $dom['slug'] ?>" class="group bg-white rounded-2xl p-7 border border-gray-200 hover:border-navy/30 hover:shadow-lg transition-all duration-200 flex flex-col">
         <div class="flex items-start justify-between mb-4">
           <div class="w-11 h-11 rounded-xl bg-navy/8 flex items-center justify-center">
             <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +94,6 @@ include __DIR__ . '/includes/header.php';
         <h3 class="font-serif text-xl font-bold text-navy mb-2 group-hover:text-navy-light transition-colors"><?= htmlspecialchars($dom['title']) ?></h3>
         <p class="text-sm text-gray-500 leading-relaxed flex-1"><?= htmlspecialchars($dom['description']) ?></p>
 
-        <!-- Sample expert faces -->
         <div class="flex items-center gap-3 mt-5 pt-5 border-t border-gray-100">
           <div class="flex -space-x-2">
             <?php foreach (array_slice($sample, 0, 3) as $sc): ?>
@@ -134,7 +105,7 @@ include __DIR__ . '/includes/header.php';
             <?= implode(', ', array_map(fn($sc) => explode(' ', $sc['expert_name'])[0], array_slice($sample,0,2))) ?>
             <?php if ($count > 2): ?> +<?= $count - 2 ?> more<?php endif; ?>
           </span>
-          <span class="ml-auto text-navy text-sm font-semibold group-hover:translate-x-1 transition-transform">→</span>
+          <span class="ml-auto text-navy text-sm font-semibold group-hover:translate-x-1 transition-transform">&rarr;</span>
         </div>
       </a>
       <?php endforeach; ?>
@@ -142,22 +113,22 @@ include __DIR__ . '/includes/header.php';
   </div>
 </section>
 
-<!-- ── WHAT IS AN EXPERT CLASS ──────────────────────────────────────── -->
+<!-- ── THE EXPERT CLASS EXPERIENCE ───────────────────────────────── -->
 <section class="bg-white py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <span class="inline-flex items-center gap-1.5 text-xs font-display font-600 uppercase tracking-widest text-navy/60 mb-5">
-          <span class="w-6 h-px bg-navy/30"></span> Learning Formats
+        <span class="inline-flex items-center gap-1.5 text-xs font-display font-600 uppercase tracking-widest text-gray-400 mb-5">
+          <span class="w-6 h-px bg-gray-300"></span> Learning Formats
         </span>
         <h2 class="font-serif text-4xl lg:text-5xl font-bold text-navy mb-6">The Expert Class Experience</h2>
-        <p class="text-gray-600 text-lg leading-relaxed mb-8">Expert Classes are in-depth video series from the world's leading thinkers — structured curricula that take learners from awareness to application in 30–50 minutes.</p>
+        <p class="text-gray-600 text-lg leading-relaxed mb-8">Featuring more Fortune 500 executives, Ivy League academics, and best-selling authors than any other solution out there, Big Think+ offers a premium and scalable solution that you and your learners will love.</p>
         <div class="space-y-5">
           <?php
           $features = [
-            ['6–8 focused lessons','Each class is structured as a curriculum, with sequential lessons that build on one another.','M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
-            ['Learner guides & transcripts','Every lesson includes a full transcript, practice prompts, and a downloadable learner guide.','M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'],
-            ['AI Practice Partner','Learners practice concepts with an AI partner trained on each expert\'s frameworks.','M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H4a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-1'],
+            ['6-8 focused lessons','Each class is structured as a curriculum, with sequential lessons that build on one another — designed to take learners from awareness to application in 30-45 minutes.','M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
+            ['Learner guides & transcripts','Every lesson includes a full transcript, practice prompts, and a downloadable learner guide designed to allow employees to put their insights into action immediately.','M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'],
+            ['AI Practice Partner','Learners practice concepts with an AI partner trained on each expert\'s frameworks — reinforcing real-world application long after the lesson ends.','M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H4a2 2 0 01-2-2V5a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2h-1'],
           ];
           foreach ($features as $f): ?>
           <div class="flex gap-4">
@@ -173,11 +144,16 @@ include __DIR__ . '/includes/header.php';
           </div>
           <?php endforeach; ?>
         </div>
+        <div class="mt-8">
+          <a href="/#domains"
+             class="inline-flex items-center gap-2 border-2 border-black text-black font-bold px-7 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors text-sm uppercase tracking-wide">
+            Explore Our Library
+          </a>
+        </div>
       </div>
 
       <!-- Mock lesson player card -->
       <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
-        <!-- Video area -->
         <div class="bg-navy aspect-video flex items-center justify-center relative overflow-hidden">
           <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30">
           <div class="relative z-10 w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
@@ -188,17 +164,15 @@ include __DIR__ . '/includes/header.php';
             <span class="text-white text-xs">1:42 / 5:00</span>
           </div>
         </div>
-        <!-- Lesson meta -->
         <div class="p-5">
           <div class="flex items-start justify-between">
             <div>
               <span class="text-xs font-display font-600 uppercase tracking-widest text-navy/50">Lesson 1 of 7</span>
               <h4 class="font-semibold text-gray-900 mt-1">What Radical Respect Really Means</h4>
-              <p class="text-sm text-gray-500 mt-0.5">Kim Scott · 5 min</p>
+              <p class="text-sm text-gray-500 mt-0.5">Kim Scott &middot; 5 min</p>
             </div>
             <span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-1 rounded-full">Free Preview</span>
           </div>
-          <!-- Locked lessons -->
           <div class="mt-4 space-y-2">
             <?php
             $demo_lessons = [['Recognizing Bias Without Weaponizing It','6m'],['Addressing Prejudice in Real Time','5m'],['How Bullying Differs From Feedback','7m']];
@@ -212,7 +186,7 @@ include __DIR__ . '/includes/header.php';
           </div>
           <a href="/expert-class/radical-respect-at-work/lesson/1"
              class="block mt-4 text-center bg-navy text-white text-sm font-semibold py-2.5 rounded-lg hover:bg-navy-dark transition-colors">
-            Preview this Expert Class →
+            Preview this Expert Class &rarr;
           </a>
         </div>
       </div>
@@ -224,20 +198,20 @@ include __DIR__ . '/includes/header.php';
 <section class="bg-gray-50 py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="text-center mb-14">
-      <h2 class="font-serif text-4xl font-bold text-navy mb-4">Everything Your L&D Team Needs</h2>
-      <p class="text-gray-500 text-lg max-w-2xl mx-auto">Big Think+ is a full learning platform designed to meet your organization where it is and take it further.</p>
+      <h2 class="font-serif text-4xl font-bold text-navy mb-4">Immerse Your Leaders in Modern Learning</h2>
+      <p class="text-gray-500 text-lg max-w-2xl mx-auto">From cutting-edge search to intuitive collaboration tools, Big Think+ is designed to engage.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <?php
       $platform_features = [
-        ['Personalized Recommendations','AI-powered recommendations that match content to each learner\'s role, level, and goals.','M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18'],
-        ['Integrations','Seamless connections to your LMS, HRIS, and the tools your teams already use daily.','M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1'],
-        ['Analytics','Measure engagement, completion, and skill development at the individual and team level.','M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'],
-        ['AI Practice Partner','Learners practice applying concepts with an AI partner trained on each expert\'s frameworks.','M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z'],
-        ['Transcription & Translation','Auto-captions and translations in 25+ languages — built for global organizations.','M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129'],
-        ['Instructional Design','Expert curriculum designers available to build custom learning journeys for your teams.','M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
-        ['Curations','Handpicked content collections curated for specific roles, initiatives, and team goals.','M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'],
-        ['Assessments','Knowledge checks and skills assessments to verify learning and surface gaps.','M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4'],
+        ['Curations','Enable learning managers and learners to save and group various content types for self-paced learning experiences.','M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10'],
+        ['Recommendations','Connect your learners with the content they need right now — personalized to their role, level, and goals.','M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18'],
+        ['Transcription & Translation','Video content translated to more than 25 languages — enabling any learner to access the platform in their preferred language.','M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129'],
+        ['Instructional Design','Every video lesson includes a Learner Guide designed to allow employees to put their insights into action immediately.','M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
+        ['Analytics','Generate deep insights on learners, content usage, and key trends with clear dashboards and intuitive assessments.','M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'],
+        ['Assessments','Designed to provide invaluable insights into the effectiveness of your learning programs and the development of your people.','M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4'],
+        ['Integrations','Deploy in minutes and integrate with any major LMS or LXP — seamlessly connecting to the tools your teams already use.','M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1'],
+        ['AI Practice Partner','Learners practice applying concepts with an AI partner trained on each expert\'s frameworks — reinforcing learning through real-world scenarios.','M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z'],
       ];
       foreach ($platform_features as $feat): ?>
       <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-shadow">
@@ -251,6 +225,12 @@ include __DIR__ . '/includes/header.php';
       </div>
       <?php endforeach; ?>
     </div>
+    <div class="text-center mt-10">
+      <a href="https://bigthink.com/plus/platform/" target="_blank"
+         class="inline-flex items-center gap-2 border-2 border-black text-black font-bold px-7 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors text-sm uppercase tracking-wide">
+        Learn More About Our Platform
+      </a>
+    </div>
   </div>
 </section>
 
@@ -258,21 +238,44 @@ include __DIR__ . '/includes/header.php';
 <section class="bg-white py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="text-center mb-14">
-      <h2 class="font-serif text-4xl font-bold text-navy mb-4">What L&D Leaders Say</h2>
+      <h2 class="font-serif text-4xl font-bold text-navy mb-4">What L&amp;D Leaders Say</h2>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
       <?php
       $testimonials = [
-        ['"Big Think+ gives us a way to introduce leadership concepts that feel fresh and credible. Our managers actually look forward to their development time — which is not something we could say before."','Sarah K.','Head of Learning & Development','Corning','women',22],
-        ['"The Expert Class format is exactly what our senior leaders needed. Deep enough to create real shifts in thinking, short enough to fit into a packed schedule. Completion rates speak for themselves: 72%."','James M.','Chief People Officer','Stryker','men',42],
-        ['"We\'ve tried a lot of platforms. Big Think+ is the first one where the content quality is high enough that leaders share it with each other voluntarily. That tells you everything."','Maria T.','VP of Talent Development','Marriott International','women',57],
+        [
+          '"As part of our strategy to develop our leaders, we chose to work with Big Think+ to develop a curated on-demand resource hub where we feature credible & exciting experts, paired with language capabilities that allow us to offer the content to our leaders globally."',
+          'Marlene Hernandez',
+          'Digital Curriculum Manager',
+          'Corning',
+          'MH',
+          '#0c3d54',
+        ],
+        [
+          '"The Big Think+ team is incredibly responsive, solutions oriented, and collaborative — on top of a really unique & valuable product offering."',
+          'Chris Walker',
+          'VP Global Leadership Development',
+          'Marriott',
+          'CW',
+          '#374151',
+        ],
+        [
+          '"Big Think is a great partner and so easy to work with. It empowers our leaders to choose topics that are relevant to them and their teams."',
+          'Sandy Pickett',
+          'Senior Director, Leadership & Professional Development',
+          'The Aspen Group',
+          'SP',
+          '#1f2937',
+        ],
       ];
       foreach ($testimonials as $t): ?>
       <div class="bg-gray-50 rounded-2xl p-7 border border-gray-200">
         <p class="text-gray-700 text-base leading-relaxed mb-6 font-serif italic"><?= $t[0] ?></p>
         <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/<?= $t[5] ?>s/<?= $t[5] === 'women' ? $t[5] : '' ?><?= $t[5] ?>/<?= rand(20,70) ?>.jpg"
-               alt="<?= htmlspecialchars($t[1]) ?>" class="w-10 h-10 rounded-full object-cover">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-white text-sm font-bold"
+               style="background-color: <?= $t[5] ?>">
+            <?= $t[4] ?>
+          </div>
           <div>
             <p class="font-semibold text-gray-900 text-sm"><?= $t[1] ?></p>
             <p class="text-xs text-gray-500"><?= $t[2] ?>, <?= $t[3] ?></p>
@@ -281,18 +284,26 @@ include __DIR__ . '/includes/header.php';
       </div>
       <?php endforeach; ?>
     </div>
+
+    <!-- Customer story callout -->
+    <div class="mt-10 bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <p class="font-serif text-lg font-bold text-navy max-w-2xl">Customer story: Stryker's leadership cohorts see 72% lesson completion rates and a new era of learning</p>
+      <a href="https://bigthink.com/plus/customer-stories/" target="_blank"
+         class="flex-shrink-0 inline-flex items-center gap-2 border-2 border-black text-black font-bold px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors text-sm uppercase tracking-wide whitespace-nowrap">
+        Read the Customer Story
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- ── FINAL CTA ─────────────────────────────────────────────────────── -->
-<section class="bg-navy py-20 lg:py-24">
+<section class="bg-black py-20 lg:py-24">
   <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
     <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-5">Experience the Full Big Think+ Platform</h2>
     <p class="text-white/70 text-lg mb-10 max-w-2xl mx-auto">Request a demo to unlock all Expert Classes, AI practice tools, and the full learning platform — built for the leaders your organization needs to develop.</p>
     <a href="https://bigthink.com/plus/request-demo/" target="_blank"
-       class="inline-flex items-center gap-2 bg-white text-navy font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition-colors text-base">
+       class="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-black transition-colors text-sm uppercase tracking-wide">
       Request a Demo
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
     </a>
   </div>
 </section>
