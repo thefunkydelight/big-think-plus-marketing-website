@@ -1,0 +1,3 @@
+# Root redirect: build is in a subdirectory
+[build]
+  base = "big-think-plus-marketing-website/.claude/worktrees/angry-maxwell"
